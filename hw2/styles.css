@@ -1,0 +1,179 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+    box-sizing: border-box;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+}
+
+.view-container,
+.inputs-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inputs-container {
+    background-color: white;
+    box-shadow: 0px 0px 6px #00000029;
+    padding: 2em;
+}
+
+.view-container {
+    margin-top: 20%;
+}
+
+.view {
+    min-width: 435px;
+    min-height: 248px;
+    background-color: white;
+    margin: 5em auto 0 3em;
+    box-shadow: 0px 6px 12px #00000029;
+    border: 1px solid #707070A8;
+    border-radius: 6px;
+    padding: 1em;
+    line-height: 1.2em;
+    box-sizing: content-box;
+}
+
+h3 {
+    color: #707070;
+}
+
+.input-text {
+    display: box;
+    width: 15em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #AAAAAABF;
+    border-radius: 2px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1607843137);
+    margin: 0 2em 0 0;
+}
+
+.text-input-label {
+    font-size: 15px;
+}
+
+.input-container {
+    color: #707070;
+    margin: 1em 0;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    border: 0;
+    background: #3F88E8 0% 0% no-repeat padding-box;
+    border-radius: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+.views-container {
+    width: 50%;
+    text-align: left;
+    margin: 3em 0 0 auto;
+    line-height: 10px;
+}
+
+#name-view {
+    margin: 2em 0 0 0;
+    text-align: center;
+    font-size: 26px;
+}
+
+#organization-view {
+    font-size: 12px;
+    text-align: center;
+}
+
+#position-view {
+    color: #707070;
+    text-align: center;
+    font-size: 16px;
+}
+
+.selector {
+    display: inline-block;
+    border: solid 1px #666;
+    margin: 0 1em;
+    border-radius: 2px;
+    padding: 0px 1px 1px 1px;
+}
+
+.selector-item {
+    display: inline-block;
+    border-radius: 15px;
+    font-size: 12px;
+    color: black;
+}
+
+.selector-label {
+    width: 1.1;
+    height: 1.1em;
+    display: block;
+    padding: 0 0.1em;
+}
+
+.selector-item input {
+    display: none;
+}
+
+.selector-item input:checked~.selector-label {
+    background-color: #999;
+}
+
+.telephone-button {
+    display: inline-block;
+    width: 1.6em;
+    height: 1.6em;
+    margin-top: 0.2em;
+    margin-right: 0.2em;
+    text-align: center;
+}
+
+#telephone-button~.text-input-label {
+    font-size: 12px;
+}
+
+.checkbox-label {
+    font-size: 14px;
+}
+
+.color-selector-item {
+    display: none;
+}
+
+.color-selector-label {
+    display: inline-block;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    margin-top: 0.2em;
+}
+
+.color-selector-item:checked~.color-selector-label:before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 0.8em;
+    height: 0.8em;
+    top: 0.43em;
+    left: 0.43em;
+    background-color: white;
+    border-radius: 50%;
+}
