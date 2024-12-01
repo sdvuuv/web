@@ -68,17 +68,36 @@ function countAdjacentMines(row, col) {
     return count;
 }
 
+document.addEventListener("mine.start", () => {
+    console.log("Игра началась!");
+});
+
+document.addEventListener("mine.step", (e) => {
+    console.log(`Ход игрока: строка ${e.detail.row}, колонка ${e.detail.col}`);
+});
+
+document.addEventListener("mine.end", (e) => {
+    console.log(`Игра завершена: ${e.detail.result}`);
+});
+
 let isFirstClick = true;
 
 function openCell(row, col) {
     if (gameOver || board[row][col].open || board[row][col].flag) return;
 
-
     if (isFirstClick) {
         isFirstClick = false;
         placeMinesAfterFirstClick(row, col);
         updateAdjacentCounts();
+
+        const startEvent = new Event("mine.start");
+        document.dispatchEvent(startEvent);
     }
+
+    const stepEvent = new CustomEvent("mine.step", {
+        detail: { row, col }
+    });
+    document.dispatchEvent(stepEvent);
 
     board[row][col].open = true;
     const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
@@ -88,6 +107,12 @@ function openCell(row, col) {
         cell.classList.add('mine');
         cell.textContent = '💣';
         gameOver = true;
+
+        const endEvent = new CustomEvent("mine.end", {
+            detail: { result: "Поражение" }
+        });
+        document.dispatchEvent(endEvent);
+
         alert('Вы проиграли!');
         return;
     }
@@ -149,6 +174,12 @@ function checkWin() {
 
     if (openedCells + mineCount === boardSize * boardSize || flaggedMines === mineCount) {
         gameOver = true;
+
+        const endEvent = new CustomEvent("mine.end", {
+            detail: { result: "Победа" }
+        });
+        document.dispatchEvent(endEvent);
+
         alert('Вы выиграли!');
     }
 }
